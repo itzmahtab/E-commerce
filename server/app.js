@@ -1,12 +1,33 @@
-import express from 'express';
-import { configDotenv } from 'dotenv';
-configDotenv();
-import cors from 'cors';
-
+import express from "express";
+import { config } from "dotenv";
+import cookieParser from "cookie-parser";
+import fileUpload from "express-fileupload";
+import cors from "cors";
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+config({ path: "./config/config.env" });
 
-export default app; 
+
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+);
+
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(fileUpload({
+
+
+    tempFileDir: "./uploads",
+    useTempFiles: true,
+
+}
+));
+
+export default app;
