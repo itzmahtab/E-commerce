@@ -3,6 +3,8 @@ import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import cors from "cors";
+import "./database/db.js";
+import { createTables } from "./utils/createTables.js";
 
 const app = express();
 
@@ -29,5 +31,6 @@ app.use(fileUpload({
 
 }
 ));
+createTables()
 
 export default app;
