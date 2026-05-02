@@ -6,6 +6,7 @@ import cors from "cors";
 import "./database/db.js";
 import { createTables } from "./utils/createTables.js";
 import { errorMiddleware } from "./middlewares/errorMiddlewares.js";
+import authRouter from "./router/authRoutes.js";
 
 const app = express();
 
@@ -32,6 +33,8 @@ app.use(fileUpload({
 
 }
 ));
+
+app.use("/api/v1/auth", authRouter);
 createTables()
 app.use(errorMiddleware);
 
