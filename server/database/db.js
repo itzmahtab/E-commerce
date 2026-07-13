@@ -3,11 +3,11 @@ import pkg from 'pg'
 const {Client} = pkg
 
 const database = new Client({
-    user: "postgres",
-    host: "localhost",
-    database: "e-commerce",
-    password: "1234",
-    port: 5432,
+    user: process.env.PG_USER || "postgres",
+    host: process.env.PG_HOST || "localhost",
+    database: process.env.PG_DATABASE || "e-commerce",
+    password: process.env.PG_PASSWORD || "1234",
+    port: process.env.PG_PORT || 5432,
 })
 
 try {
