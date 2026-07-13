@@ -8,9 +8,9 @@ import { createTables } from "./utils/createTables.js";
 import { errorMiddleware } from "./middlewares/errorMiddlewares.js";
 import authRouter from "./router/authRoutes.js";
 
-const app = express();
-
 config({ path: "./config/config.env" });
+
+const app = express();
 
 
 app.use(
@@ -26,13 +26,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(fileUpload({
-
-
     tempFileDir: "./uploads",
     useTempFiles: true,
-
-}
-));
+}));
 
 app.use("/api/v1/auth", authRouter);
 createTables()

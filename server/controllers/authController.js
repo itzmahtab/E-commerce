@@ -16,7 +16,7 @@ export const register = catchAsyncError(async (req, res, next) => {
     [email],
   );
 
-  if (isAlreadyRegistered.length > 0) {
+  if (isAlreadyRegistered.rows.length > 0) {
     return next(new ErrorHandler("User already registered", 400));
   }
 
