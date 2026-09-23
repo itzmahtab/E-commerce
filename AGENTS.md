@@ -4,7 +4,7 @@
 
 - **Server**: Express 5 backend in `server/` folder
 - **Entry point**: `server/index.js`
-- **Config**: `server/config/config.env` (required for running)
+- **Config**: `server/.env` (required for running)
 
 ## Commands
 
@@ -25,7 +25,7 @@ cd server && npm start
 
 ## Environment Setup
 
-Create `server/config/config.env` with required variables:
+Create `server/.env` with required variables:
 - `PORT`, `FRONTEND_URL`, `DASHBOARD_URL`
 - `JWT_SECRET_KEY`, `JWT_EXPIRES_IN`, `COOKIE_EXPIRES_IN`
 - `SMTP_*` (for email), `CLOUDINARY_*`, `STRIPE_*`
@@ -36,5 +36,5 @@ Key packages: Express, pg, JWT, bcrypt, Stripe, Cloudinary, Nodemailer, cookie-p
 
 ## Notes
 
-- The commented-out `config()` call in `index.js:5` was likely intentional - `app.js` loads config at line 13
+- Config is loaded from `./.env` via dotenv in both `app.js:11` and `index.js:5`
 - File uploads stored in `./uploads/` (temp directory)

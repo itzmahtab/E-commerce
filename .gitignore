@@ -10,7 +10,6 @@ yarn.lock
 .env
 .env.local
 .env.*.local
-server/config/config.env
 
 # Uploads directory
 uploads/
@@ -86,4 +85,3 @@ temp/
 # Slug id and token files (if any)
 .token
 *.token
-server/config/config.env
