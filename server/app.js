@@ -8,7 +8,7 @@ import { createTables } from "./utils/createTables.js";
 import { errorMiddleware } from "./middlewares/errorMiddlewares.js";
 import authRouter from "./router/authRoutes.js";
 
-config({ path: "./config/config.env" });
+config({ path: "./.env" });
 
 const app = express();
 

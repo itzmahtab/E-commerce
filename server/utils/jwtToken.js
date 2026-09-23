@@ -20,3 +20,5 @@ export const sendToken = (user, statusCode, message, res) => {
       message,
     });
 };
+
+

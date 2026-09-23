@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import { sendToken } from "../utils/jwtToken.js";
 
 export const register = catchAsyncError(async (req, res, next) => {
+  
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
@@ -28,6 +29,8 @@ export const register = catchAsyncError(async (req, res, next) => {
   );
   sendToken(user.rows[0], 201, "User registered successfully", res);
 });
+
+
 
 export const login = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;
@@ -54,6 +57,9 @@ export const login = catchAsyncError(async (req, res, next) => {
   sendToken(user.rows[0], 200, "User logged in successfully", res);
 });
 
+
+
+
 export const getUserProfile = catchAsyncError(async (req, res, next) => {
 
   const user = req.user;
@@ -63,6 +69,8 @@ export const getUserProfile = catchAsyncError(async (req, res, next) => {
   });
 
 });
+
+
 
 export const logout = catchAsyncError(async (req, res, next) => {
   res.status(200).cookie("token", null, {
